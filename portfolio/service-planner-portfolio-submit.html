@@ -1,0 +1,863 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>서비스 기획자 포트폴리오</title>
+  <style>
+    :root {
+      --ink: #111827;
+      --sub: #64748b;
+      --paper: #f7f9fc;
+      --sheet: #ffffff;
+      --line: #e5e7eb;
+      --charcoal: #101828;
+      --brand: #0064ff;
+      --brand-dark: #003b95;
+      --brand-soft: #eef5ff;
+      --brand-tint: #f6faff;
+      --accent: #00a3a3;
+      --accent-soft: #eefcfc;
+      --warn: #f59e0b;
+      --warn-soft: #fff8e8;
+      --neutral-soft: #f8fafc;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 14% 8%, rgba(0, 100, 255, .08), transparent 30%),
+        radial-gradient(circle at 86% 16%, rgba(0, 163, 163, .08), transparent 24%),
+        linear-gradient(135deg, #ffffff, var(--paper));
+      font-family: "Pretendard Variable", Pretendard, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      line-height: 1.7;
+      word-break: keep-all;
+    }
+
+    .document {
+      width: min(1180px, calc(100% - 56px));
+      margin: 40px auto 88px;
+    }
+
+    .page {
+      min-height: 1160px;
+      margin-bottom: 34px;
+      padding: 62px;
+      background:
+        linear-gradient(120deg, rgba(255, 255, 255, .99), rgba(246, 250, 255, .92)),
+        var(--sheet);
+      border: 1px solid rgba(32, 38, 51, .12);
+      box-shadow: 0 30px 90px rgba(15, 23, 42, .10);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 24px;
+      border: 1px solid rgba(32, 38, 51, .07);
+      pointer-events: none;
+    }
+
+    .page::after {
+      content: "";
+      position: absolute;
+      right: -90px;
+      bottom: -120px;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(0, 100, 255, .08), transparent 70%);
+      pointer-events: none;
+    }
+
+    .page > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1,
+    h2,
+    .serif {
+      font-family: "Pretendard Variable", Pretendard, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      letter-spacing: 0;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--line);
+      color: var(--sub);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(280px, .55fr);
+      gap: 44px;
+      align-items: end;
+      padding-top: 86px;
+    }
+
+    h1 {
+      max-width: 860px;
+      font-size: clamp(38px, 4.6vw, 64px);
+      line-height: 1.08;
+      font-weight: 700;
+    }
+
+    .lead {
+      max-width: 720px;
+      margin-top: 28px;
+      color: var(--sub);
+      font-size: 20px;
+      line-height: 1.78;
+    }
+
+    .media-frame {
+      min-height: 430px;
+      border: 1px solid rgba(32, 38, 51, .16);
+      background:
+        linear-gradient(140deg, rgba(16, 24, 40, .76), rgba(0, 100, 255, .54)),
+        repeating-linear-gradient(135deg, rgba(255,255,255,.18) 0 1px, transparent 1px 16px),
+        linear-gradient(135deg, #101828, var(--brand));
+      position: relative;
+      overflow: hidden;
+    }
+
+    .media-frame::before,
+    .media-frame::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(4px);
+    }
+
+    .media-frame::before {
+      width: 240px;
+      height: 240px;
+      right: -60px;
+      top: -40px;
+      background: rgba(255, 255, 255, .26);
+    }
+
+    .media-frame::after {
+      width: 180px;
+      height: 180px;
+      left: 36px;
+      bottom: 48px;
+      background: rgba(0, 163, 163, .34);
+    }
+
+    .image-caption {
+      position: absolute;
+      left: 26px;
+      right: 26px;
+      bottom: 24px;
+      padding: 18px;
+      color: #ffffff;
+      background: rgba(16, 24, 40, .70);
+      backdrop-filter: blur(10px);
+      font-size: 14px;
+    }
+
+    .identity-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 64px;
+    }
+
+    .identity {
+      min-height: 150px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .82);
+    }
+
+    .kicker {
+      margin-bottom: 14px;
+      color: var(--brand);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .identity strong,
+    .callout strong {
+      display: block;
+      color: var(--charcoal);
+      font-size: 18px;
+      line-height: 1.45;
+    }
+
+    .identity span {
+      display: block;
+      margin-top: 10px;
+      color: var(--sub);
+      font-size: 14px;
+    }
+
+    .page-num {
+      position: absolute;
+      right: 42px;
+      bottom: 34px;
+      color: rgba(32, 38, 51, .36);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .chapter {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 54px;
+      align-items: start;
+    }
+
+    .chapter-title {
+      position: sticky;
+      top: 32px;
+    }
+
+    .chapter-title h2 {
+      font-size: 30px;
+      line-height: 1.28;
+    }
+
+    .chapter-title p {
+      margin-top: 20px;
+      color: var(--sub);
+      font-size: 15px;
+    }
+
+    .scan-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-flow: dense;
+      gap: 18px;
+    }
+
+    .scan-card {
+      min-height: 220px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .86);
+    }
+
+    .scan-card.wide {
+      grid-column: span 7;
+    }
+
+    .scan-card.side {
+      grid-column: span 5;
+    }
+
+    .scan-card.green {
+      background: var(--brand-soft);
+    }
+
+    .scan-card.rose {
+      background: var(--accent-soft);
+    }
+
+    .scan-card.blue {
+      background: var(--neutral-soft);
+    }
+
+    .scan-card.sand {
+      background: var(--warn-soft);
+    }
+
+    .scan-card h3 {
+      max-width: 560px;
+      color: var(--charcoal);
+      font-size: 24px;
+      line-height: 1.42;
+    }
+
+    .scan-card ul,
+    .project-copy ul,
+    .module ol {
+      margin: 18px 0 0;
+      padding-left: 20px;
+      color: var(--sub);
+      font-size: 15px;
+    }
+
+    .story-lane {
+      display: grid;
+      gap: 14px;
+    }
+
+    .story-item {
+      display: grid;
+      grid-template-columns: 120px 180px 1fr;
+      gap: 22px;
+      min-height: 128px;
+      padding: 20px 22px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .88);
+    }
+
+    .story-item .date {
+      color: var(--brand);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .story-item .company {
+      color: var(--charcoal);
+      font-size: 15px;
+      font-weight: 900;
+    }
+
+    .story-item .company span {
+      display: block;
+      margin-top: 8px;
+      color: var(--sub);
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.45;
+    }
+
+    .story-item h3 {
+      font-size: 19px;
+      line-height: 1.45;
+    }
+
+    .story-item p {
+      margin-top: 8px;
+      color: var(--sub);
+      font-size: 14px;
+    }
+
+    .project-spread {
+      display: grid;
+      grid-template-columns: minmax(320px, .92fr) minmax(0, 1.08fr);
+      gap: 38px;
+      align-items: stretch;
+      margin-top: 30px;
+      padding-top: 30px;
+      border-top: 1px solid var(--line);
+    }
+
+    .project-spread:first-of-type {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .project-media {
+      min-height: 470px;
+      padding: 24px;
+      border: 1px solid rgba(32, 38, 51, .16);
+      background:
+        linear-gradient(135deg, rgba(16, 24, 40, .76), rgba(0, 100, 255, .46)),
+        linear-gradient(45deg, rgba(255,255,255,.16) 25%, transparent 25% 50%, rgba(255,255,255,.10) 50% 75%, transparent 75%);
+      background-size: auto, 44px 44px;
+      color: #fffaf1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    .project-media.alt {
+      background:
+        linear-gradient(135deg, rgba(16, 24, 40, .72), rgba(0, 163, 163, .44)),
+        radial-gradient(circle at 80% 18%, rgba(255, 255, 255, .24), transparent 28%),
+        linear-gradient(45deg, rgba(255,255,255,.12) 25%, transparent 25% 50%, rgba(255,255,255,.08) 50% 75%, transparent 75%);
+      background-size: auto, auto, 40px 40px;
+    }
+
+    .project-media .placeholder {
+      margin-top: auto;
+      padding: 18px;
+      border: 1px dashed rgba(255, 255, 255, .58);
+      color: rgba(255, 255, 255, .90);
+      font-size: 14px;
+    }
+
+    .project-copy {
+      padding: 12px 0 12px;
+    }
+
+    .project-copy h3 {
+      font-size: 34px;
+      line-height: 1.24;
+    }
+
+    .summary {
+      margin-top: 18px;
+      color: var(--sub);
+      font-size: 17px;
+    }
+
+    .parl-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .parl {
+      min-height: 128px;
+      padding: 18px;
+      border: 1px solid rgba(32, 38, 51, .12);
+      background: rgba(255, 255, 255, .88);
+    }
+
+    .parl b {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--brand);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .parl span {
+      color: var(--sub);
+      font-size: 14px;
+    }
+
+    .callout {
+      margin-top: 24px;
+      padding: 22px;
+      border-left: 5px solid var(--brand);
+      background: var(--brand-soft);
+      color: var(--brand-dark);
+      font-size: 15px;
+    }
+
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .module {
+      min-height: 360px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .88);
+    }
+
+    .module h3 {
+      min-height: 68px;
+      font-size: 22px;
+    }
+
+    .qa-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 44px;
+    }
+
+    .qa {
+      min-height: 112px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .88);
+    }
+
+    .qa b {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--charcoal);
+    }
+
+    .next-actions {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 24px;
+      margin-top: 52px;
+    }
+
+    .action-box {
+      min-height: 220px;
+      padding: 28px;
+      color: #ffffff;
+      background: var(--charcoal);
+    }
+
+    .action-box.secondary {
+      color: var(--ink);
+      background: var(--brand-tint);
+      border: 1px solid var(--line);
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .document {
+        width: 100%;
+        margin: 0;
+      }
+
+      .page {
+        min-height: 0;
+        height: 297mm;
+        margin: 0;
+        padding: 17mm;
+        border: 0;
+        box-shadow: none;
+        page-break-after: always;
+      }
+
+      .chapter-title {
+        position: static;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .document {
+        width: calc(100% - 28px);
+        margin-top: 16px;
+      }
+
+      .page {
+        min-height: auto;
+        padding: 30px;
+      }
+
+      .hero,
+      .chapter,
+      .project-spread,
+      .module-grid,
+      .next-actions,
+      .identity-strip,
+      .story-item,
+      .qa-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .scan-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .scan-card.wide,
+      .scan-card.side {
+        grid-column: span 1;
+      }
+
+      .parl-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="document">
+    <section class="page">
+      <nav class="nav">
+        <span>Service Planner Portfolio</span>
+        <span>Commerce Integration · PG Settlement · Operations UX</span>
+      </nav>
+      <div class="hero">
+        <div>
+          <h1>커머스 연동 × PG 정산 × 운영 UX</h1>
+          <p class="lead">
+            호스팅 커머스에서 외부 서비스/API 연동과 운영 안정성을 경험하고,
+            PG사에서 정산과 결제 운영의 관점을 확장한 인하우스 서비스 기획자 포트폴리오입니다.
+          </p>
+        </div>
+        <figure class="media-frame" aria-label="대표 이미지 영역">
+          <figcaption class="image-caption">
+            추후 실제 프로젝트 화면, 플로우 차트, 관리자 화면 캡처, 정책 문서 일부를 넣을 수 있는 대표 이미지 영역입니다.
+          </figcaption>
+        </figure>
+      </div>
+      <div class="identity-strip">
+        <div class="identity">
+          <div class="kicker">Target Role</div>
+          <strong>인하우스 서비스 기획자 / PM·PO 전환 후보</strong>
+          <span>기획 산출물, 운영 적용, 협업 조율을 함께 보여주는 방향</span>
+        </div>
+        <div class="identity">
+          <div class="kicker">Core Strength</div>
+          <strong>커머스 연동 경험과 PG 정산 관점의 연결</strong>
+          <span>외부 연동, 보안 대응, 정산 업무, 운영 UX를 하나의 성장 흐름으로 구성</span>
+        </div>
+        <div class="identity">
+          <div class="kicker">Portfolio Focus</div>
+          <strong>지원 기업의 브랜드 컬러를 반영한 맞춤형 제출 문서</strong>
+          <span>대표 프로젝트와 산출물을 중심으로 직무 적합도를 빠르게 전달하는 구성</span>
+        </div>
+      </div>
+      <div class="page-num">01</div>
+    </section>
+
+    <section class="page">
+      <div class="chapter">
+        <aside class="chapter-title">
+          <h2>Professional Summary</h2>
+          <p>직무 적합도, 경력 레벨, 대표 경험이 빠르게 드러나도록 핵심 역량을 요약했습니다.</p>
+        </aside>
+        <div class="scan-grid">
+          <article class="scan-card wide green">
+            <div class="kicker">Job Fit</div>
+            <h3>커머스와 PG 사이의 운영 문제를 이해하는 기획자</h3>
+            <ul>
+              <li>첫 회사에서는 네이버페이, 카카오싱크, ISMS 대응 등 외부 연동과 운영 안정성을 경험</li>
+              <li>PG사에서는 정산 업무를 통해 결제 이후의 돈의 흐름과 운영 리스크를 학습</li>
+            </ul>
+          </article>
+          <article class="scan-card side rose">
+            <div class="kicker">Level Signal</div>
+            <h3>기준 정리, 조율, 운영 적용을 보여준다</h3>
+            <ul>
+              <li>내 담당 범위와 팀 성과 분리</li>
+              <li>결정권과 제안 범위 구분</li>
+            </ul>
+          </article>
+          <article class="scan-card side blue">
+            <div class="kicker">Core Projects</div>
+            <h3>대표 프로젝트 후보</h3>
+            <ul>
+              <li>네이버페이 연동</li>
+              <li>카카오싱크 연동</li>
+              <li>ISMS 대응</li>
+              <li>PG 정산 업무</li>
+            </ul>
+          </article>
+          <article class="scan-card wide sand">
+            <div class="kicker">Work Focus</div>
+            <h3>실제 경험한 범위 안에서 신뢰도 있게 설명합니다</h3>
+            <ul>
+              <li>외부 연동, 보안 대응, 정산 업무, 운영 UX 관점을 중심으로 설명</li>
+              <li>성과 수치가 제한적인 프로젝트는 규모, 빈도, 기간, 대상 수, 운영 리스크 관점으로 보완</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+      <div class="page-num">02</div>
+    </section>
+
+    <section class="page">
+      <div class="chapter">
+        <aside class="chapter-title">
+          <h2>Career Timeline</h2>
+          <p>회사 연혁처럼 경력 흐름을 짧게 보여주고, 각 시기의 역할과 관점 확장을 한눈에 확인할 수 있게 구성합니다.</p>
+        </aside>
+        <div class="story-lane">
+          <article class="story-item">
+            <div class="date">2019.05<br>~ 2023.12</div>
+            <div class="company">첫 회사<span>호스팅 커머스<br>서비스 기획</span></div>
+            <div>
+              <h3>외부 연동과 운영 안정성 중심의 커머스 기획 경험</h3>
+              <p>주문·결제 전체를 깊게 담당했다기보다, 네이버페이 연동, 카카오싱크 연동, ISMS 대응처럼 외부 플랫폼과 서비스가 안정적으로 연결되기 위한 기획 업무를 경험했습니다.</p>
+            </div>
+          </article>
+          <article class="story-item">
+            <div class="date">2024<br>~ 2025</div>
+            <div class="company">PG사<span>정산 업무<br>결제 운영 관점 확장</span></div>
+            <div>
+              <h3>정산과 결제 이후 운영 리스크를 이해한 시기</h3>
+              <p>PG사에서 정산 업무를 배우며 결제 이후의 돈의 흐름, 정산 리스크, 운영 프로세스, 관리자 화면의 사용성을 함께 보는 관점을 넓혔습니다.</p>
+            </div>
+          </article>
+          <article class="story-item">
+            <div class="date">현재</div>
+            <div class="company">첫 회사 재합류<span>확장된 관점으로<br>기존 문제 재해석</span></div>
+            <div>
+              <h3>커머스 연동 경험에 PG·정산·UX 관점을 더해 재합류</h3>
+              <p>재입사는 단순 복귀가 아니라, 커머스 연동 경험에 PG·정산·UX 관점을 더해 이전에는 좁게 봤던 문제를 더 넓게 해결할 수 있다고 판단한 선택입니다.</p>
+            </div>
+          </article>
+          <div class="callout">
+            <strong>면접 표현 기준</strong>
+            내부 담당자 부재, 지인 추천, 전 회사 조직 문제를 앞세우지 않고 “이전 협업 신뢰와 역할 적합성이 맞아 재합류했다”로 설명합니다.
+          </div>
+        </div>
+      </div>
+      <div class="page-num">03</div>
+    </section>
+
+    <section class="page">
+      <div class="chapter-title">
+          <h2>Selected Projects</h2>
+        <p>대표 프로젝트는 문제 배경, 접근 방식, 결과, 나의 역할이 한눈에 보이도록 구성했습니다.</p>
+      </div>
+
+      <article class="project-spread">
+        <aside class="project-media">
+          <div>
+            <div class="kicker">External Payment</div>
+            <h3 class="serif">네이버페이 연동</h3>
+          </div>
+          <div class="placeholder">이미지 후보: 연동 플로우, 화면설계 일부, 정책 정리 표, QA 체크리스트</div>
+        </aside>
+        <div class="project-copy">
+          <h3>외부 결제수단 연동을 위한 요구사항 정리와 운영 적용</h3>
+          <p class="summary">커머스 서비스에 외부 결제수단을 연결하기 위해 요구사항, 정책, 화면/운영 흐름, 개발 협의 사항을 정리한 경험으로 구성합니다.</p>
+          <div class="parl-grid">
+            <div class="parl"><b>Problem</b><span>외부 결제수단 도입 시 회원, 결제, 운영 흐름에서 확인해야 할 정책과 예외 케이스가 존재했습니다.</span></div>
+            <div class="parl"><b>Approach</b><span>연동 요건, 화면 흐름, 운영 처리 기준을 정리하고 관련 부서와 적용 범위를 조율했습니다.</span></div>
+            <div class="parl"><b>Result</b><span>연동 적용을 위해 필요한 정책과 운영 기준을 정리해 서비스 반영 과정의 불확실성을 줄였습니다.</span></div>
+            <div class="parl"><b>My Role</b><span>요구사항 정리, 정책 검토, 화면/운영 흐름 확인, 유관 부서 협의 과정에 참여했습니다.</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-spread">
+        <aside class="project-media alt">
+          <div>
+            <div class="kicker">Member Integration</div>
+            <h3 class="serif">카카오싱크 연동</h3>
+          </div>
+          <div class="placeholder">이미지 후보: 가입/동의 플로우, 회원정보 매핑표, 예외 케이스 정리</div>
+        </aside>
+        <div class="project-copy">
+          <h3>가입·동의·회원정보 처리 흐름을 서비스에 맞게 연결</h3>
+          <p class="summary">카카오 계정 기반의 가입, 동의, 회원정보 처리 흐름을 서비스 정책과 사용자 경험 관점에서 정리한 경험입니다.</p>
+          <div class="parl-grid">
+            <div class="parl"><b>Problem</b><span>가입과 동의 과정에서 사용자가 이해해야 할 정보와 서비스가 받아야 할 데이터 기준이 필요했습니다.</span></div>
+            <div class="parl"><b>Approach</b><span>동의 항목, 회원정보 매핑, 화면 문구, 예외 흐름을 기준으로 요구사항을 정리했습니다.</span></div>
+            <div class="parl"><b>Result</b><span>가입과 동의 흐름에서 확인해야 할 정책, 데이터, 예외 케이스를 정리해 적용 기준을 명확히 했습니다.</span></div>
+            <div class="parl"><b>My Role</b><span>동의 항목, 회원정보 처리 기준, 화면 문구, 예외 흐름을 검토하고 협업 과정에 참여했습니다.</span></div>
+          </div>
+        </div>
+      </article>
+      <div class="page-num">04</div>
+    </section>
+
+    <section class="page">
+      <article class="project-spread">
+        <aside class="project-media alt">
+          <div>
+            <div class="kicker">Security & Operation</div>
+            <h3 class="serif">ISMS 대응</h3>
+          </div>
+          <div class="placeholder">이미지 후보: 증적 리스트, 권한 정책, 개인정보 처리 기준, 운영 절차</div>
+        </aside>
+        <div class="project-copy">
+          <h3>보안 인증 대응을 위한 서비스 정책과 운영 기준 정비</h3>
+          <p class="summary">보안 전문가처럼 포장하지 않고, 서비스 기획자로서 정책, 화면/기능 수정, 권한·로그·개인정보 처리 기준, 증적 대응에 기여한 범위를 정리합니다.</p>
+          <div class="parl-grid">
+            <div class="parl"><b>Problem</b><span>보안 인증 대응을 위해 서비스 정책과 운영 기준을 명확히 정리해야 했습니다.</span></div>
+            <div class="parl"><b>Approach</b><span>관련 화면, 기능, 운영 절차, 증적을 기준으로 담당 범위를 정리했습니다.</span></div>
+            <div class="parl"><b>Result</b><span>서비스 정책과 운영 기준을 점검하고, 인증 대응 과정에서 필요한 기준과 증적을 정리했습니다.</span></div>
+            <div class="parl"><b>My Role</b><span>정책, 화면/기능, 권한, 로그, 개인정보 처리 기준을 서비스 관점에서 검토했습니다.</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-spread">
+        <aside class="project-media">
+          <div>
+            <div class="kicker">PG Settlement</div>
+            <h3 class="serif">정산 업무</h3>
+          </div>
+          <div class="placeholder">이미지 후보: 정산 흐름도, 대사/보류/차감 케이스, 관리자 화면 개선 아이디어</div>
+        </aside>
+        <div class="project-copy">
+          <h3>PG 정산 업무를 통해 확장한 운영 리스크와 관리자 UX 이해</h3>
+          <p class="summary">PG사에서 배운 정산 업무를 돈의 흐름, 정산 주기, 수수료, 취소/환불, 대사, 보류/차감, 관리자 처리 관점으로 구조화합니다.</p>
+          <div class="parl-grid">
+            <div class="parl"><b>Problem</b><span>결제 이후 정산 과정에는 운영자가 이해해야 할 예외와 리스크가 많았습니다.</span></div>
+            <div class="parl"><b>Approach</b><span>정산 흐름과 반복 이슈를 학습하고, 운영자가 확인해야 할 기준을 분리해 이해했습니다.</span></div>
+            <div class="parl"><b>Result</b><span>정산 업무를 통해 결제 이후의 운영 리스크와 관리자 처리 흐름을 이해하는 관점을 확장했습니다.</span></div>
+            <div class="parl"><b>My Role</b><span>정산 구조와 반복 이슈를 학습하고, 운영자가 확인해야 할 기준을 기획 관점으로 정리했습니다.</span></div>
+          </div>
+        </div>
+      </article>
+      <div class="page-num">05</div>
+    </section>
+
+    <section class="page">
+      <div class="chapter-title">
+        <h2>Appendix</h2>
+        <p>대표 프로젝트를 설명할 때 함께 제시할 수 있는 산출물과 업무 방식을 정리했습니다.</p>
+      </div>
+
+      <div class="module-grid">
+        <article class="module">
+          <div class="kicker">Project Artifacts</div>
+          <h3>프로젝트 이해를 돕는 산출물</h3>
+          <ol>
+            <li>연동 정책 및 요구사항 정리 문서</li>
+            <li>회원/동의/결제 흐름 화면 설계 일부</li>
+            <li>운영 예외 케이스 및 QA 체크리스트</li>
+            <li>ISMS 대응 관련 정책/증적 정리</li>
+            <li>정산 흐름 또는 운영 처리 기준 메모</li>
+          </ol>
+        </article>
+        <article class="module">
+          <div class="kicker">Working Style</div>
+          <h3>복잡한 운영 문제를 정리하는 방식</h3>
+          <ol>
+            <li>정책과 예외 케이스를 먼저 구조화</li>
+            <li>사용자 화면과 운영자 처리 흐름을 함께 확인</li>
+            <li>개발, 운영, 보안, 제휴 부서와 협의 범위 정리</li>
+            <li>오픈 이후 운영 기준과 확인 항목을 문서화</li>
+          </ol>
+        </article>
+        <article class="module">
+          <div class="kicker">Growth Direction</div>
+          <h3>다음 역할에서 확장하고 싶은 영역</h3>
+          <ol>
+            <li>PG/정산 도메인 이해도 심화</li>
+            <li>관리자/운영 UX 개선 역량 강화</li>
+            <li>데이터 기반 문제 정의와 검증 방식 학습</li>
+            <li>AI를 활용한 업무 효율화 실험 지속</li>
+          </ol>
+        </article>
+      </div>
+
+      <div class="qa-grid">
+        <div class="qa"><b>업무 강점</b>외부 연동, 정책 정리, 운영 기준 수립처럼 복잡한 조건을 구조화하는 데 강점이 있습니다.</div>
+        <div class="qa"><b>협업 방식</b>개발, 운영, 보안, 제휴 등 여러 이해관계자의 요구를 기획 산출물로 정리합니다.</div>
+        <div class="qa"><b>도메인 확장</b>커머스 연동 경험에 PG 정산과 운영 UX 관점을 더해 문제를 더 넓게 바라봅니다.</div>
+        <div class="qa"><b>제출 메모</b>지원 회사에 맞춰 브랜드 컬러와 대표 프로젝트 순서를 조정해 제출할 수 있습니다.</div>
+      </div>
+
+      <div class="next-actions">
+        <div class="action-box">
+          <div class="kicker">Closing Statement</div>
+          <h3>연동, 운영, 정산이 만나는 지점의 문제를 기획으로 정리합니다</h3>
+          <p class="summary">복잡한 운영 조건을 서비스 구조와 사용자 경험으로 풀어내는 기획자가 되는 것을 목표로 합니다.</p>
+        </div>
+        <div class="action-box secondary">
+          <div class="kicker">Contact</div>
+          <p>이름, 이메일, 포트폴리오 링크, Notion 또는 PDF 링크를 배치할 영역입니다. 최종 제출 전 개인정보와 링크를 입력합니다.</p>
+        </div>
+      </div>
+      <div class="page-num">06</div>
+    </section>
+
+  </main>
+</body>
+</html>

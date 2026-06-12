@@ -122,17 +122,17 @@
 
     h1 {
       max-width: 860px;
-      font-size: clamp(38px, 4.6vw, 64px);
-      line-height: 1.08;
+      font-size: clamp(34px, 3.8vw, 54px);
+      line-height: 1.14;
       font-weight: 700;
     }
 
     .lead {
-      max-width: 720px;
-      margin-top: 28px;
+      max-width: 640px;
+      margin-top: 22px;
       color: var(--sub);
-      font-size: 20px;
-      line-height: 1.78;
+      font-size: 17px;
+      line-height: 1.72;
     }
 
     .media-frame {
@@ -242,14 +242,15 @@
     }
 
     .chapter-title h2 {
-      font-size: 30px;
+      font-size: 26px;
       line-height: 1.28;
     }
 
     .chapter-title p {
       margin-top: 20px;
       color: var(--sub);
-      font-size: 15px;
+      font-size: 16px;
+      line-height: 1.7;
     }
 
     .scan-grid {
@@ -260,8 +261,8 @@
     }
 
     .scan-card {
-      min-height: 220px;
-      padding: 28px;
+      min-height: 250px;
+      padding: 34px;
       border: 1px solid var(--line);
       background: rgba(255, 255, 255, .86);
     }
@@ -291,24 +292,85 @@
     }
 
     .scan-card h3 {
-      max-width: 560px;
+      max-width: 620px;
       color: var(--charcoal);
-      font-size: 24px;
-      line-height: 1.42;
+      font-size: 28px;
+      line-height: 1.38;
     }
 
     .scan-card ul,
     .project-copy ul,
     .module ol {
-      margin: 18px 0 0;
+      margin: 22px 0 0;
       padding-left: 20px;
       color: var(--sub);
-      font-size: 15px;
+      font-size: 18px;
+      line-height: 1.78;
     }
 
     .story-lane {
       display: grid;
       gap: 14px;
+    }
+
+    .career-map {
+      margin-top: 32px;
+      padding: 18px 4px 0;
+    }
+
+    .career-map-line {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      min-height: 92px;
+    }
+
+    .career-map-line::before {
+      content: "";
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      top: 14px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--brand), var(--accent));
+    }
+
+    .career-point {
+      position: relative;
+      padding-top: 34px;
+      color: var(--sub);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .career-point::before {
+      content: "";
+      position: absolute;
+      top: 7px;
+      left: 0;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      background: var(--brand);
+      box-shadow: 0 0 0 1px rgba(0, 100, 255, .28);
+    }
+
+    .career-point:nth-child(2)::before {
+      background: var(--accent);
+    }
+
+    .career-point:nth-child(3)::before {
+      background: var(--charcoal);
+    }
+
+    .career-point b {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--ink);
+      font-size: 12px;
     }
 
     .story-item {
@@ -446,6 +508,77 @@
       font-size: 14px;
     }
 
+    .detail-layout {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 28px;
+      margin-top: 30px;
+    }
+
+    .detail-panel {
+      min-height: 260px;
+      padding: 26px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .88);
+    }
+
+    .detail-panel h3 {
+      margin-bottom: 14px;
+      font-size: 22px;
+      line-height: 1.45;
+    }
+
+    .detail-panel p,
+    .detail-panel li {
+      color: var(--sub);
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    .detail-panel ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .evidence-board {
+      min-height: 420px;
+      padding: 28px;
+      border: 1px dashed rgba(0, 100, 255, .28);
+      background:
+        linear-gradient(135deg, rgba(0, 100, 255, .08), rgba(0, 163, 163, .05)),
+        #fff;
+    }
+
+    .evidence-board h3 {
+      font-size: 24px;
+    }
+
+    .case-list {
+      display: grid;
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .case-row {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 24px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .9);
+    }
+
+    .case-row h3 {
+      font-size: 22px;
+      line-height: 1.4;
+    }
+
+    .case-row p {
+      color: var(--sub);
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
     .callout {
       margin-top: 24px;
       padding: 22px;
@@ -556,6 +689,8 @@
       .next-actions,
       .identity-strip,
       .story-item,
+      .detail-layout,
+      .case-row,
       .qa-grid {
         grid-template-columns: 1fr;
       }
@@ -590,8 +725,7 @@
         <div>
           <h1>커머스 연동 × PG 정산 × 운영 UX</h1>
           <p class="lead">
-            호스팅 커머스에서 외부 서비스/API 연동과 운영 안정성을 경험하고,
-            PG사에서 정산과 결제 운영의 관점을 확장한 인하우스 서비스 기획자 포트폴리오입니다.
+            외부 연동, 정산, 운영 UX 관점을 연결해 복잡한 커머스 운영 문제를 정리하는 서비스 기획자 포트폴리오입니다.
           </p>
         </div>
         <figure class="media-frame" aria-label="대표 이미지 영역">
@@ -671,6 +805,13 @@
         <aside class="chapter-title">
           <h2>Career Timeline</h2>
           <p>회사 연혁처럼 경력 흐름을 짧게 보여주고, 각 시기의 역할과 관점 확장을 한눈에 확인할 수 있게 구성합니다.</p>
+          <div class="career-map" aria-label="경력 흐름 요약">
+            <div class="career-map-line">
+              <div class="career-point"><b>Commerce</b>외부 연동·운영 안정성</div>
+              <div class="career-point"><b>PG</b>정산·결제 운영 관점</div>
+              <div class="career-point"><b>Return</b>확장된 관점으로 재합류</div>
+            </div>
+          </div>
         </aside>
         <div class="story-lane">
           <article class="story-item">
@@ -708,34 +849,66 @@
 
     <section class="page">
       <div class="chapter-title">
-          <h2>Selected Projects</h2>
-        <p>대표 프로젝트는 문제 배경, 접근 방식, 결과, 나의 역할이 한눈에 보이도록 구성했습니다.</p>
+        <h2>Selected Projects</h2>
+        <p>대표 프로젝트는 한 프로젝트당 최대 2페이지까지 확장할 수 있도록 `Overview`와 `Detail Notes`로 나눠 구성했습니다.</p>
       </div>
 
       <article class="project-spread">
         <aside class="project-media">
           <div>
-            <div class="kicker">External Payment</div>
+            <div class="kicker">Project 01 · Overview</div>
             <h3 class="serif">네이버페이 연동</h3>
           </div>
           <div class="placeholder">이미지 후보: 연동 플로우, 화면설계 일부, 정책 정리 표, QA 체크리스트</div>
         </aside>
         <div class="project-copy">
           <h3>외부 결제수단 연동을 위한 요구사항 정리와 운영 적용</h3>
-          <p class="summary">커머스 서비스에 외부 결제수단을 연결하기 위해 요구사항, 정책, 화면/운영 흐름, 개발 협의 사항을 정리한 경험으로 구성합니다.</p>
+          <p class="summary">커머스 서비스에 외부 결제수단을 연결하기 위해 요구사항, 정책, 화면/운영 흐름, 개발 협의 사항을 정리한 경험입니다.</p>
           <div class="parl-grid">
             <div class="parl"><b>Problem</b><span>외부 결제수단 도입 시 회원, 결제, 운영 흐름에서 확인해야 할 정책과 예외 케이스가 존재했습니다.</span></div>
             <div class="parl"><b>Approach</b><span>연동 요건, 화면 흐름, 운영 처리 기준을 정리하고 관련 부서와 적용 범위를 조율했습니다.</span></div>
-            <div class="parl"><b>Result</b><span>연동 적용을 위해 필요한 정책과 운영 기준을 정리해 서비스 반영 과정의 불확실성을 줄였습니다.</span></div>
+            <div class="parl"><b>Result</b><span>정책과 운영 기준을 정리해 서비스 반영 과정의 불확실성을 줄였습니다.</span></div>
             <div class="parl"><b>My Role</b><span>요구사항 정리, 정책 검토, 화면/운영 흐름 확인, 유관 부서 협의 과정에 참여했습니다.</span></div>
           </div>
         </div>
       </article>
+      <div class="page-num">04</div>
+    </section>
+
+    <section class="page">
+      <div class="chapter-title">
+        <h2>Project Detail Notes</h2>
+        <p>프로젝트의 실제 산출물, 이해관계자, 예외 케이스, 배운 점을 추가로 담는 확장 페이지입니다.</p>
+      </div>
+      <div class="detail-layout">
+        <div class="evidence-board">
+          <div class="kicker">Evidence Area</div>
+          <h3>네이버페이 연동 산출물 배치 영역</h3>
+          <p class="summary">정책 정리표, 연동 플로우, 화면 설계 일부, QA 체크리스트 캡처를 이 영역에 배치합니다. 이미지가 2~3개 들어가도 답답하지 않도록 큰 여백을 유지합니다.</p>
+        </div>
+        <div class="detail-panel">
+          <h3>추가 작성 항목</h3>
+          <ul>
+            <li>연동 전 확인해야 했던 정책과 예외 케이스</li>
+            <li>개발/운영/제휴 등 협업 부서와 조율한 내용</li>
+            <li>오픈 전후 운영 기준과 QA 확인 항목</li>
+            <li>이 경험을 통해 얻은 외부 연동 기획의 기준</li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-num">05</div>
+    </section>
+
+    <section class="page">
+      <div class="chapter-title">
+        <h2>Selected Projects</h2>
+        <p>두 번째 대표 프로젝트도 동일하게 2페이지까지 확장할 수 있는 구조로 설계했습니다.</p>
+      </div>
 
       <article class="project-spread">
         <aside class="project-media alt">
           <div>
-            <div class="kicker">Member Integration</div>
+            <div class="kicker">Project 02 · Overview</div>
             <h3 class="serif">카카오싱크 연동</h3>
           </div>
           <div class="placeholder">이미지 후보: 가입/동의 플로우, 회원정보 매핑표, 예외 케이스 정리</div>
@@ -751,50 +924,55 @@
           </div>
         </div>
       </article>
-      <div class="page-num">04</div>
+      <div class="page-num">06</div>
     </section>
 
     <section class="page">
-      <article class="project-spread">
-        <aside class="project-media alt">
+      <div class="chapter-title">
+        <h2>Project Detail Notes</h2>
+        <p>정책·데이터·사용자 흐름을 더 자세히 설명할 수 있는 보조 페이지입니다.</p>
+      </div>
+      <div class="detail-layout">
+        <div class="evidence-board">
+          <div class="kicker">Evidence Area</div>
+          <h3>카카오싱크 연동 산출물 배치 영역</h3>
+          <p class="summary">가입/동의 플로우, 회원정보 매핑표, 동의 항목 정리, 예외 케이스 목록을 배치할 수 있습니다.</p>
+        </div>
+        <div class="detail-panel">
+          <h3>추가 작성 항목</h3>
+          <ul>
+            <li>사용자가 동의 단계에서 이해해야 하는 정보</li>
+            <li>서비스가 받아야 하는 회원정보와 처리 기준</li>
+            <li>예외 상황에서 운영자가 확인해야 하는 기준</li>
+            <li>가입 흐름과 운영 정책을 함께 고려하며 배운 점</li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-num">07</div>
+    </section>
+
+    <section class="page">
+      <div class="chapter-title">
+        <h2>Additional Cases</h2>
+        <p>대표 프로젝트 외에 도메인 확장을 보여주는 보조 사례입니다. 필요하면 각 사례도 별도 페이지로 확장할 수 있습니다.</p>
+      </div>
+      <div class="case-list">
+        <article class="case-row">
           <div>
             <div class="kicker">Security & Operation</div>
-            <h3 class="serif">ISMS 대응</h3>
+            <h3>ISMS 대응과 운영 안정성 정비</h3>
           </div>
-          <div class="placeholder">이미지 후보: 증적 리스트, 권한 정책, 개인정보 처리 기준, 운영 절차</div>
-        </aside>
-        <div class="project-copy">
-          <h3>보안 인증 대응을 위한 서비스 정책과 운영 기준 정비</h3>
-          <p class="summary">보안 전문가처럼 포장하지 않고, 서비스 기획자로서 정책, 화면/기능 수정, 권한·로그·개인정보 처리 기준, 증적 대응에 기여한 범위를 정리합니다.</p>
-          <div class="parl-grid">
-            <div class="parl"><b>Problem</b><span>보안 인증 대응을 위해 서비스 정책과 운영 기준을 명확히 정리해야 했습니다.</span></div>
-            <div class="parl"><b>Approach</b><span>관련 화면, 기능, 운영 절차, 증적을 기준으로 담당 범위를 정리했습니다.</span></div>
-            <div class="parl"><b>Result</b><span>서비스 정책과 운영 기준을 점검하고, 인증 대응 과정에서 필요한 기준과 증적을 정리했습니다.</span></div>
-            <div class="parl"><b>My Role</b><span>정책, 화면/기능, 권한, 로그, 개인정보 처리 기준을 서비스 관점에서 검토했습니다.</span></div>
-          </div>
-        </div>
-      </article>
-
-      <article class="project-spread">
-        <aside class="project-media">
+          <p>보안 인증 대응 과정에서 서비스 정책, 화면/기능, 권한, 로그, 개인정보 처리 기준을 서비스 기획자의 관점에서 검토하고 정리한 경험입니다.</p>
+        </article>
+        <article class="case-row">
           <div>
             <div class="kicker">PG Settlement</div>
-            <h3 class="serif">정산 업무</h3>
+            <h3>PG 정산 업무와 운영 리스크 이해</h3>
           </div>
-          <div class="placeholder">이미지 후보: 정산 흐름도, 대사/보류/차감 케이스, 관리자 화면 개선 아이디어</div>
-        </aside>
-        <div class="project-copy">
-          <h3>PG 정산 업무를 통해 확장한 운영 리스크와 관리자 UX 이해</h3>
-          <p class="summary">PG사에서 배운 정산 업무를 돈의 흐름, 정산 주기, 수수료, 취소/환불, 대사, 보류/차감, 관리자 처리 관점으로 구조화합니다.</p>
-          <div class="parl-grid">
-            <div class="parl"><b>Problem</b><span>결제 이후 정산 과정에는 운영자가 이해해야 할 예외와 리스크가 많았습니다.</span></div>
-            <div class="parl"><b>Approach</b><span>정산 흐름과 반복 이슈를 학습하고, 운영자가 확인해야 할 기준을 분리해 이해했습니다.</span></div>
-            <div class="parl"><b>Result</b><span>정산 업무를 통해 결제 이후의 운영 리스크와 관리자 처리 흐름을 이해하는 관점을 확장했습니다.</span></div>
-            <div class="parl"><b>My Role</b><span>정산 구조와 반복 이슈를 학습하고, 운영자가 확인해야 할 기준을 기획 관점으로 정리했습니다.</span></div>
-          </div>
-        </div>
-      </article>
-      <div class="page-num">05</div>
+          <p>PG사에서 정산 업무를 배우며 결제 이후의 돈의 흐름, 정산 주기, 취소/환불, 보류/차감, 관리자 처리 흐름을 이해하는 관점을 확장했습니다.</p>
+        </article>
+      </div>
+      <div class="page-num">08</div>
     </section>
 
     <section class="page">
@@ -855,7 +1033,7 @@
           <p>이름, 이메일, 포트폴리오 링크, Notion 또는 PDF 링크를 배치할 영역입니다. 최종 제출 전 개인정보와 링크를 입력합니다.</p>
         </div>
       </div>
-      <div class="page-num">06</div>
+      <div class="page-num">09</div>
     </section>
 
   </main>

@@ -1,0 +1,1981 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>서비스 기획자 포트폴리오 - Featured Project</title>
+  <meta name="description" content="비즈니스와 고객의 교차점에서 사용자 가치와 운영 임팩트를 연결해 온 서비스 기획자 포트폴리오입니다. 네이버페이 API 업그레이드 사례를 중심으로 핵심 프로젝트를 정리했습니다.">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --paper: #ffffff;
+      --paper-strong: #ffffff;
+      --panel: #f5f6f8;
+      --line: rgba(25, 28, 34, 0.12);
+      --line-strong: rgba(25, 28, 34, 0.22);
+      --ink: #1c1d21;
+      --muted: #646975;
+      --soft: #8c92a0;
+      --blue: #4d6bff;
+      --green: #62c66a;
+      --orange: #ff9e1a;
+      --red: #db564c;
+      --purple: #8a6cff;
+      --shadow: 0 24px 48px rgba(32, 35, 41, 0.06);
+      --radius-xl: 18px;
+      --radius-lg: 12px;
+      --radius-md: 9px;
+      --radius-sm: 6px;
+      --max-width: 1200px;
+      --ease: cubic-bezier(0.32, 0.72, 0, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      min-height: 100dvh;
+      background: #fff;
+      color: var(--ink);
+      font-family: "Pretendard Variable", Pretendard, "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      line-height: 1.7;
+      word-break: keep-all;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      display: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    ul,
+    ol,
+    dl,
+    dd {
+      margin: 0;
+    }
+
+    ul {
+      padding-left: 18px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 16px;
+      top: -40px;
+      z-index: 100;
+      padding: 10px 14px;
+      background: #111;
+      color: #fff;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: top 220ms var(--ease);
+    }
+
+    .skip-link:focus {
+      top: 16px;
+    }
+
+    .page {
+      width: min(100% - 40px, var(--max-width));
+      margin: 0 auto;
+      padding: 28px 0 72px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section {
+      margin-top: 28px;
+    }
+
+    .meta-row,
+    .eyebrow,
+    .section-index,
+    .chip,
+    .mini-kicker,
+    .phase-nav span,
+    .stat-label {
+      font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .phase-nav,
+    .section-index,
+    .pill-board {
+      display: none;
+    }
+
+    body.page-featured header.hero-board,
+    body.page-featured #summary,
+    body.page-featured #contact {
+      display: none;
+    }
+
+    .meta-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      font-size: 11px;
+      color: var(--soft);
+      align-items: center;
+    }
+
+    .meta-row span:nth-child(2) {
+      text-align: center;
+    }
+
+    .meta-row span:last-child {
+      text-align: right;
+    }
+
+    .hero-board,
+    .summary-card,
+    .project-card,
+    .case-board,
+    .contact-board,
+    .pill-board {
+      border: 1px solid rgba(28, 29, 33, 0.08);
+      background: var(--paper);
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-board {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      padding: 28px 30px 34px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.14fr) minmax(280px, 0.86fr);
+      gap: 26px;
+      margin-top: 18px;
+      align-items: end;
+    }
+
+    .hero-copy {
+      display: grid;
+      gap: 18px;
+      min-width: 0;
+    }
+
+    .hero-copy h1 {
+      max-width: 10.5ch;
+      font-size: clamp(38px, 6vw, 68px);
+      line-height: 1.04;
+      letter-spacing: -0.06em;
+      font-weight: 800;
+      text-wrap: balance;
+    }
+
+    .hero-copy h1 .accent {
+      color: var(--blue);
+    }
+
+    .hero-copy p {
+      max-width: 62ch;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    .hero-highlight {
+      display: inline;
+      color: var(--blue);
+      font-weight: 800;
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 540px;
+    }
+
+    .mini-stat {
+      padding: 13px 14px;
+      border-radius: 9px;
+      background: rgba(255, 255, 255, 0.62);
+      border: 1px solid rgba(28, 29, 33, 0.08);
+    }
+
+    .mini-stat strong {
+      display: block;
+      margin-top: 6px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--ink);
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      color: var(--soft);
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 18px;
+      justify-items: end;
+      align-content: end;
+    }
+
+    .hero-contact {
+      display: grid;
+      gap: 10px;
+      justify-items: end;
+      text-align: right;
+    }
+
+    .hero-contact dl {
+      display: grid;
+      gap: 8px;
+    }
+
+    .hero-contact .row {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 10px;
+      font-size: 13px;
+      line-height: 1.5;
+      align-items: start;
+    }
+
+    .hero-contact dt {
+      color: var(--soft);
+      font-weight: 600;
+    }
+
+    .hero-contact dd {
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .portrait-wrap {
+      width: 240px;
+      height: 240px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #5f82ff, #3d5ef5);
+      border: 8px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 22px 36px rgba(77, 107, 255, 0.24);
+      display: grid;
+      place-items: center;
+    }
+
+    .section-head {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .section-head h2 {
+      max-width: 13ch;
+      font-size: clamp(26px, 3.6vw, 36px);
+      line-height: 1.08;
+      letter-spacing: -0.05em;
+      font-weight: 800;
+      text-wrap: balance;
+    }
+
+    .section-head p {
+      max-width: 64ch;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.85;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.06fr) minmax(0, 0.94fr);
+      gap: 18px;
+    }
+
+    .summary-card {
+      border-radius: 14px;
+      padding: 22px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .summary-timeline-card {
+      gap: 22px;
+    }
+
+    .summary-highlight-card .evidence-grid {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .summary-highlight-card .evidence-thumb {
+      aspect-ratio: auto;
+      min-height: 152px;
+    }
+
+    .career-rail {
+      position: relative;
+      display: grid;
+      gap: 28px;
+      padding: 8px 0 10px;
+    }
+
+    .career-rail::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 1px;
+      background: linear-gradient(180deg, rgba(77, 107, 255, 0.08), rgba(77, 107, 255, 0.22), rgba(77, 107, 255, 0.08));
+      transform: translateX(-50%);
+    }
+
+    .career-era {
+      position: relative;
+      display: grid;
+      gap: 16px;
+    }
+
+    .career-era-year {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      margin: 0 auto;
+      padding: 0 14px;
+      background: #fff;
+      font-size: 34px;
+      line-height: 1;
+      letter-spacing: -0.06em;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .career-era-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .career-entry {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 92px minmax(0, 1fr);
+      align-items: center;
+      gap: 18px;
+    }
+
+    .career-entry::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--blue);
+      box-shadow: 0 0 0 6px rgba(77, 107, 255, 0.08);
+      transform: translate(-50%, -50%);
+    }
+
+    .career-entry-side {
+      display: grid;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .career-entry-side strong {
+      font-size: 14px;
+      line-height: 1.45;
+      letter-spacing: -0.03em;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .career-entry-side span {
+      font-size: 12px;
+      line-height: 1.72;
+      color: var(--muted);
+    }
+
+    .career-entry-side.left {
+      text-align: right;
+    }
+
+    .career-entry-side.right {
+      text-align: left;
+    }
+
+    .career-entry-date {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      justify-self: center;
+      min-width: 76px;
+      min-height: 32px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(77, 107, 255, 0.14);
+      box-shadow: 0 10px 18px rgba(28, 29, 33, 0.04);
+      font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      font-weight: 700;
+    }
+
+    .tab-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin: -22px -22px 0;
+      padding: 12px 18px 11px;
+      border-radius: 11px 11px 7px 7px;
+      background: var(--blue);
+      color: #fff;
+    }
+
+    .tab-header h3 {
+      font-size: 16px;
+      line-height: 1.3;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .tab-header span {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.78);
+      font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .timeline-list,
+    .evidence-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 86px 1fr;
+      gap: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .timeline-item strong {
+      color: var(--soft);
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .evidence-thumb {
+      aspect-ratio: 1.16 / 1;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(28, 29, 33, 0.08);
+      background: #f8f8fa;
+    }
+
+    .evidence-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .evidence-label {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .evidence-note {
+      padding: 16px;
+      display: grid;
+      align-content: space-between;
+      gap: 12px;
+      background:
+        linear-gradient(180deg, rgba(77, 107, 255, 0.08), rgba(77, 107, 255, 0.02)),
+        #fff;
+    }
+
+    .evidence-note strong {
+      font-size: 18px;
+      line-height: 1.35;
+      letter-spacing: -0.03em;
+    }
+
+    .evidence-note p {
+      font-size: 12px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .evidence-note .chip {
+      font-size: 10px;
+      color: var(--blue);
+      font-weight: 700;
+    }
+
+    .slot-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .slot-card {
+      border-radius: 9px;
+      border: 1px dashed rgba(28, 29, 33, 0.18);
+      background: rgba(255, 255, 255, 0.58);
+      padding: 16px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .slot-card strong {
+      font-size: 14px;
+      line-height: 1.35;
+      letter-spacing: -0.02em;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .slot-card p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.72;
+    }
+
+    .slot-meta {
+      font-size: 10px;
+      line-height: 1.4;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--soft);
+      font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+    }
+
+    .legacy-hidden {
+      display: none !important;
+    }
+
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .pill-board {
+      border-radius: 999px;
+      padding: 18px 24px;
+      text-align: center;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-top: 14px;
+    }
+
+    .principle-card {
+      border-radius: 11px;
+      padding: 18px 18px 16px;
+      background: rgba(255, 255, 255, 0.68);
+      border: 1px solid rgba(28, 29, 33, 0.08);
+      display: grid;
+      gap: 10px;
+    }
+
+    .principle-card strong {
+      font-size: 15px;
+      line-height: 1.35;
+      letter-spacing: -0.03em;
+    }
+
+    .principle-card p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.75;
+    }
+
+    .principle-card .metric-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: rgba(77, 107, 255, 0.1);
+      color: var(--blue);
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .process-card {
+      border-radius: 11px;
+      padding: 18px;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(28, 29, 33, 0.08);
+      display: grid;
+      gap: 10px;
+    }
+
+    .process-card strong {
+      font-size: 15px;
+      line-height: 1.4;
+      letter-spacing: -0.03em;
+    }
+
+    .process-card p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.75;
+    }
+
+    .mini-kicker {
+      font-size: 10px;
+      color: var(--blue);
+      font-weight: 700;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .projects-grid-featured {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .project-card {
+      border-radius: 14px;
+      overflow: hidden;
+      display: grid;
+      align-content: start;
+    }
+
+    .project-cover {
+      position: relative;
+      aspect-ratio: 0.92 / 1;
+      overflow: hidden;
+      background: #f0f1f5;
+    }
+
+    .project-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      transition: transform 240ms var(--ease);
+    }
+
+    .project-card:hover .project-cover img,
+    .project-card:focus-within .project-cover img {
+      transform: scale(1.03);
+    }
+
+    .tag-dot {
+      position: absolute;
+      left: 16px;
+      top: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 28px;
+      padding: 0 12px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 700;
+      color: #fff;
+      box-shadow: 0 10px 18px rgba(0, 0, 0, 0.12);
+    }
+
+    .project-body {
+      padding: 18px 18px 20px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .project-body h3 {
+      font-size: 20px;
+      line-height: 1.16;
+      letter-spacing: -0.04em;
+      font-weight: 800;
+    }
+
+    .project-body p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.75;
+    }
+
+    .project-stats {
+      display: grid;
+      gap: 7px;
+      padding-top: 4px;
+      border-top: 1px solid var(--line);
+    }
+
+    .project-stats li {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 8px;
+      list-style: none;
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .project-stats strong {
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .placeholder-card {
+      border: 1px dashed rgba(28, 29, 33, 0.16);
+      background: rgba(255, 255, 255, 0.58);
+    }
+
+    .project-placeholder {
+      display: grid;
+      align-content: space-between;
+      gap: 18px;
+      padding: 18px;
+      background:
+        radial-gradient(circle at top right, rgba(77, 107, 255, 0.12), transparent 48%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(242, 243, 246, 0.94));
+    }
+
+    .placeholder-copy {
+      display: grid;
+      gap: 10px;
+      max-width: 18ch;
+    }
+
+    .placeholder-copy strong {
+      font-size: 22px;
+      line-height: 1.04;
+      letter-spacing: -0.05em;
+      font-weight: 800;
+      color: var(--ink);
+      text-wrap: balance;
+    }
+
+    .placeholder-copy p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .placeholder-lines {
+      display: grid;
+      gap: 8px;
+    }
+
+    .placeholder-lines span {
+      display: block;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(77, 107, 255, 0.14);
+    }
+
+    .placeholder-lines span:nth-child(2) {
+      width: 82%;
+    }
+
+    .placeholder-lines span:nth-child(3) {
+      width: 64%;
+    }
+
+    .feature-shell {
+      display: grid;
+      gap: 18px;
+    }
+
+    .feature-head {
+      display: grid;
+      gap: 10px;
+    }
+
+    .feature-head h2 {
+      max-width: 16ch;
+      font-size: clamp(28px, 3.8vw, 42px);
+      line-height: 1.05;
+      letter-spacing: -0.05em;
+      font-weight: 800;
+    }
+
+    .feature-head p {
+      max-width: 64ch;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.85;
+    }
+
+    .case-stack {
+      display: grid;
+      gap: 18px;
+    }
+
+    .case-board {
+      border-radius: 15px;
+      padding: 22px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .phase-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 10px;
+      color: var(--soft);
+    }
+
+    .phase-nav .active {
+      color: var(--blue);
+      font-weight: 700;
+    }
+
+    .case-title {
+      display: grid;
+      gap: 8px;
+    }
+
+    .case-title h3 {
+      font-size: clamp(20px, 2.5vw, 30px);
+      line-height: 1.12;
+      letter-spacing: -0.04em;
+      font-weight: 800;
+    }
+
+    .case-title p {
+      max-width: 62ch;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .case-overview {
+      display: grid;
+      grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+      gap: 16px;
+      align-items: start;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .stat-card {
+      padding: 14px;
+      border-radius: 9px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(28, 29, 33, 0.08);
+    }
+
+    .stat-label {
+      display: block;
+      font-size: 10px;
+      color: var(--soft);
+    }
+
+    .stat-card strong {
+      display: block;
+      margin-top: 8px;
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--ink);
+    }
+
+    .media-frame {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(28, 29, 33, 0.08);
+      background: var(--paper-strong);
+    }
+
+    .media-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .split-media {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .bullet-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .bullet-card {
+      padding: 14px;
+      border-top: 3px solid var(--blue);
+      border-radius: 9px;
+      background: rgba(255, 255, 255, 0.66);
+      border-left: 1px solid rgba(28, 29, 33, 0.08);
+      border-right: 1px solid rgba(28, 29, 33, 0.08);
+      border-bottom: 1px solid rgba(28, 29, 33, 0.08);
+      display: grid;
+      gap: 7px;
+    }
+
+    .bullet-card strong {
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--ink);
+    }
+
+    .bullet-card p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.75;
+    }
+
+    .case-insight {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+      gap: 14px;
+    }
+
+    .stacked-text {
+      display: grid;
+      gap: 10px;
+    }
+
+    .stack-line {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
+      line-height: 1.75;
+    }
+
+    .stack-line:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .stack-line strong {
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .stack-line span {
+      color: var(--muted);
+    }
+
+    .asset-mosaic {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .asset-mosaic .media-frame {
+      aspect-ratio: 1 / 1.1;
+    }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+      gap: 16px;
+      align-items: start;
+    }
+
+    .result-metrics {
+      display: grid;
+      gap: 10px;
+    }
+
+    .result-metric {
+      padding: 16px;
+      border-radius: 9px;
+      background: rgba(255, 255, 255, 0.72);
+      border-left: 3px solid var(--blue);
+      border-right: 1px solid rgba(28, 29, 33, 0.08);
+      border-top: 1px solid rgba(28, 29, 33, 0.08);
+      border-bottom: 1px solid rgba(28, 29, 33, 0.08);
+    }
+
+    .result-metric strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 14px;
+      color: var(--ink);
+    }
+
+    .result-metric span {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.75;
+    }
+
+    .closing-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(260px, 0.88fr);
+      gap: 18px;
+      align-items: end;
+    }
+
+    .contact-board {
+      position: relative;
+      overflow: hidden;
+      border-radius: 18px;
+      padding: 28px 30px 30px;
+    }
+
+    .contact-board::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle, transparent 64%, rgba(77, 107, 255, 0.32) 65%, rgba(77, 107, 255, 0.32) 65.4%, transparent 66%) left -180px bottom -180px / 620px 620px no-repeat,
+        radial-gradient(circle, transparent 64%, rgba(77, 107, 255, 0.3) 65%, rgba(77, 107, 255, 0.3) 65.4%, transparent 66%) right -120px top -160px / 560px 560px no-repeat;
+      pointer-events: none;
+      opacity: 0.55;
+    }
+
+    .contact-board > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-copy {
+      display: grid;
+      gap: 18px;
+      min-width: 0;
+    }
+
+    .contact-copy h2 {
+      max-width: 16ch;
+      font-size: clamp(28px, 3.6vw, 42px);
+      line-height: 1.08;
+      letter-spacing: -0.05em;
+      font-weight: 800;
+      text-wrap: balance;
+    }
+
+    .contact-copy h2 .accent {
+      color: var(--blue);
+    }
+
+    .contact-copy p {
+      max-width: 58ch;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    .contact-side {
+      display: grid;
+      gap: 16px;
+      justify-items: end;
+      text-align: right;
+    }
+
+    .contact-side dl {
+      display: grid;
+      gap: 10px;
+    }
+
+    .contact-side .row {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 10px;
+      font-size: 14px;
+      line-height: 1.55;
+      align-items: start;
+    }
+
+    .contact-side dt {
+      color: var(--soft);
+      font-weight: 700;
+    }
+
+    .contact-side dd {
+      color: var(--ink);
+      font-weight: 800;
+    }
+
+    .contact-portrait {
+      width: 168px;
+      height: 168px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(180deg, #5f82ff, #3d5ef5);
+      border: 8px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 20px 30px rgba(77, 107, 255, 0.2);
+    }
+
+    .portrait-mark {
+      display: grid;
+      gap: 2px;
+      justify-items: center;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .portrait-mark strong {
+      font-size: 78px;
+      line-height: 0.9;
+      letter-spacing: -0.08em;
+      font-weight: 800;
+    }
+
+    .portrait-mark span {
+      font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0.82;
+    }
+
+    .hidden-link {
+      text-decoration: none;
+    }
+
+    @media (max-width: 1080px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .process-grid,
+      .principles-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hero-grid,
+      .summary-grid,
+      .case-overview,
+      .case-insight,
+      .result-grid,
+      .closing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-side,
+      .contact-side,
+      .hero-contact {
+        justify-items: start;
+        text-align: left;
+      }
+
+      .meta-row span:nth-child(2),
+      .meta-row span:last-child {
+        text-align: left;
+      }
+
+      .meta-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        width: min(100% - 20px, var(--max-width));
+        padding: 18px 0 48px;
+      }
+
+      .hero-board,
+      .summary-card,
+      .project-card,
+      .case-board,
+      .contact-board {
+        border-radius: 12px;
+      }
+
+      .hero-board,
+      .contact-board {
+        padding: 22px 18px 24px;
+      }
+
+      .summary-card,
+      .case-board {
+        padding: 18px;
+      }
+
+      .tab-header {
+        margin: -18px -18px 0;
+        border-radius: 9px 9px 6px 6px;
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      .hero-copy h1 {
+        font-size: 42px;
+        max-width: 100%;
+      }
+
+      .section-head h2,
+      .feature-head h2,
+      .contact-copy h2 {
+        max-width: 100%;
+      }
+
+      .hero-meta,
+      .stat-grid,
+      .projects-grid,
+      .process-grid,
+      .principles-grid,
+      .split-media,
+      .bullet-grid,
+      .asset-mosaic,
+      .evidence-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item,
+      .career-entry,
+      .stack-line,
+      .hero-contact .row,
+      .contact-side .row,
+      .project-stats li {
+        grid-template-columns: 1fr;
+      }
+
+      .career-rail::before,
+      .career-entry::before {
+        left: 0;
+        transform: none;
+      }
+
+      .career-era-year {
+        margin: 0 0 0 24px;
+        padding-left: 0;
+      }
+
+      .career-entry {
+        gap: 10px;
+        padding-left: 24px;
+      }
+
+      .career-entry-date {
+        justify-self: start;
+      }
+
+      .career-entry-side.left,
+      .career-entry-side.right {
+        text-align: left;
+      }
+
+      .portrait-wrap {
+        width: 188px;
+        height: 188px;
+      }
+
+      .contact-portrait {
+        width: 132px;
+        height: 132px;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      body::before,
+      body::after {
+        display: none;
+      }
+
+      .page {
+        width: 100%;
+        max-width: none;
+        padding: 0;
+      }
+
+      .hero-board,
+      .summary-card,
+      .project-card,
+      .case-board,
+      .contact-board,
+      .pill-board {
+        box-shadow: none;
+        backdrop-filter: none;
+      }
+    }
+  </style>
+</head>
+<body class="page-featured">
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+  <main class="page" id="main">
+    <header class="hero-board">
+      <div class="meta-row" aria-label="포트폴리오 메타 정보">
+        <span>Product Manager</span>
+        <span>Portfolio</span>
+        <span>2024</span>
+      </div>
+
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Business × Customer × Operation</span>
+          <h1>비즈니스와 고객의 교차점 <span class="accent">서비스 기획자</span>입니다</h1>
+          <p>사용자 가치부터 운영 구조, 지표 설계까지 한 흐름으로 다루며 결과를 만들었습니다. 이번 포트폴리오는 <span class="hero-highlight">네이버페이 API 업그레이드</span>를 대표 사례로 두고, 실제로 성과를 냈던 프로젝트만 남겨 다시 정리했습니다.</p>
+
+          <div class="hero-meta">
+            <div class="mini-stat">
+              <span class="eyebrow">Focus</span>
+              <strong>사용자 가치와 운영 임팩트를 동시에 설명할 수 있는 PM</strong>
+            </div>
+            <div class="mini-stat">
+              <span class="eyebrow">Core</span>
+              <strong>문제 정의, 정책 정합, 화면 설계, QA, 배포 운영까지 직접 리드</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <div class="hero-contact">
+            <span class="eyebrow">Contact</span>
+            <dl>
+              <div class="row">
+                <dt>Name</dt>
+                <dd>서비스 기획자</dd>
+              </div>
+              <div class="row">
+                <dt>Phone</dt>
+                <dd>연락처 입력</dd>
+              </div>
+              <div class="row">
+                <dt>Email</dt>
+                <dd><a class="hidden-link" href="mailto:planner@example.com">planner@example.com</a></dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="portrait-wrap" aria-label="프로필 이미지">
+            <div class="portrait-mark" aria-hidden="true">
+              <strong>PM</strong>
+              <span>folio</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="section legacy-hidden" id="summary-curated">
+      <div class="section-head">
+        <span class="eyebrow">Summary</span>
+        <h2>네이버페이를 중심으로 다시 정리하고, 다음 프로젝트를 채울 자리도 남겼습니다</h2>
+        <p>지금은 실제 프로젝트인 네이버페이만 선명하게 보여주고, 나머지 영역은 같은 포맷으로 확장할 수 있게 비워 두었습니다. 이후 프로젝트를 추가할 때도 구조가 흔들리지 않도록 요약과 카드 형식을 먼저 정리했습니다.</p>
+      </div>
+
+      <div class="summary-grid">
+        <article class="summary-card legacy-hidden">
+          <div class="tab-header">
+            <h3>현재 정리한 프로젝트</h3>
+            <span>profile</span>
+          </div>
+
+          <div class="timeline-list">
+            <div class="timeline-item">
+              <strong>대표 사례</strong>
+              <span>주문형 네이버페이 API 업그레이드를 중심으로 문제 정의, 정책 정합, 화면 기획, QA, 배포 이후 운영까지 한 흐름으로 정리했습니다.</span>
+            </div>
+            <div class="timeline-item">
+              <strong>핵심 역할</strong>
+              <span>기획 100%, PM 100% 기준으로 API 문서 분석, 정책 수립, 화면 기획, 테스트 시나리오, 운영 가이드 작성을 맡았습니다.</span>
+            </div>
+            <div class="timeline-item">
+              <strong>남긴 결과</strong>
+              <span>version 1.0 한계로 발생하던 자사몰 이탈과 운영 혼선을 줄이기 위해 2.1 전환 구조를 설계했고, 이후 프로젝트에도 돌려쓸 기준을 남겼습니다.</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="summary-card">
+          <div class="tab-header">
+            <h3>추가 프로젝트 아카이브</h3>
+            <span>next slots</span>
+          </div>
+
+          <div class="slot-grid">
+            <article class="slot-card">
+              <span class="slot-meta">project 02 reserved</span>
+              <strong>다음 프로젝트를 넣을 자리</strong>
+              <p>대표 화면, 문제 정의, 역할, 결과를 같은 카드 구조로 바로 추가할 수 있도록 비워 둔 슬롯입니다.</p>
+            </article>
+            <article class="slot-card">
+              <span class="slot-meta">project 03 reserved</span>
+              <strong>내용을 압축해 넣는 확장 슬롯</strong>
+              <p>프로젝트 범위가 넓더라도 핵심 맥락과 결과만 먼저 보여주고, 상세는 아래 케이스 보드처럼 확장할 수 있게 설계했습니다.</p>
+            </article>
+            <article class="slot-card">
+              <span class="slot-meta">project 04 reserved</span>
+              <strong>같은 톤으로 이어지는 빈 보드</strong>
+              <p>다른 사람 프로젝트를 억지로 채우지 않고, 실제 사용자님 프로젝트만 선별해 순차적으로 넣을 수 있는 공간입니다.</p>
+            </article>
+          </div>
+        </article>
+      </div>
+
+      <div class="principles-grid section">
+        <article class="principle-card">
+          <strong>문제와 지표를 같이 정의합니다</strong>
+          <p>좋아 보이는 개선보다, 무엇이 실제로 달라져야 하는지와 어떤 숫자로 확인할지부터 먼저 정리합니다.</p>
+          <span class="metric-chip">problem → metric</span>
+        </article>
+        <article class="principle-card">
+          <strong>정책과 화면을 같은 기준으로 맞춥니다</strong>
+          <p>운영 문서, 상태값, 화면 문구가 서로 다른 말을 하지 않도록 한 기준서로 먼저 정합을 맞춥니다.</p>
+          <span class="metric-chip">policy → ui</span>
+        </article>
+        <article class="principle-card">
+          <strong>배포 이후 운영까지 연결합니다</strong>
+          <p>기획이 화면 시안에서 끝나지 않도록 QA, 배포 시나리오, 운영 가이드와 모니터링 포인트까지 함께 남깁니다.</p>
+          <span class="metric-chip">qa → launch → ops</span>
+        </article>
+      </div>
+
+      <div class="pill-board">지금은 네이버페이 한 건을 깊게 보여주고, 이후 실제 프로젝트를 같은 규칙의 카드와 보드로 이어 붙일 수 있도록 틀부터 정리했습니다.</div>
+
+      <div class="process-grid section">
+        <article class="process-card">
+          <span class="mini-kicker">01 define</span>
+          <strong>문제를 먼저 문장으로 고정합니다</strong>
+          <p>현황, 사용자 흐름, 운영 리스크를 한 문장으로 합의해 이후 판단 기준이 흔들리지 않게 만듭니다.</p>
+        </article>
+        <article class="process-card">
+          <span class="mini-kicker">02 align</span>
+          <strong>정책과 상태값을 맞춰 둡니다</strong>
+          <p>문장, 필드, 예외 처리, API 포인트를 같은 언어로 정리해 개발과 QA가 같은 기준을 보도록 만듭니다.</p>
+        </article>
+        <article class="process-card">
+          <span class="mini-kicker">03 ship</span>
+          <strong>화면과 운영 흐름까지 같이 설계합니다</strong>
+          <p>관리자 화면, 처리 프로세스, 가이드 문서가 함께 움직이도록 구성해 실제 운영 시점의 혼선을 줄입니다.</p>
+        </article>
+        <article class="process-card">
+          <span class="mini-kicker">04 archive</span>
+          <strong>결과와 한계를 같이 남깁니다</strong>
+          <p>성공 포인트만이 아니라 전환 속도, 운영 이슈, 다음 개선 기준까지 같이 적어 이후 포트폴리오 확장의 재료로 남깁니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="summary">
+      <div class="section-head">
+        <span class="eyebrow">Summary</span>
+        <h2>서비스 기획에서 PM/PO로 확장하는 흐름을 먼저 보여줍니다</h2>
+        <p>실제 경력 서술 대신, 현재 강점과 다음 성장축이 바로 읽히도록 예시 데이터로 먼저 채웠습니다. 이후 실제 경험으로 교체해도 구조가 유지되도록 간결하게 정리했습니다.</p>
+      </div>
+
+      <div class="summary-grid">
+        <article class="summary-card">
+          <div class="tab-header">
+            <h3>최근 경력 요약</h3>
+            <span>profile</span>
+          </div>
+
+          <div class="timeline-list">
+            <div class="timeline-item">
+              <strong>현재 중심축</strong>
+              <span>PG·결제·정산 도메인에서 정책, 예외 기준, 운영 구조를 정리하는 서비스 기획 경험을 대표 강점으로 둡니다. 네이버페이 사례처럼 결제 구조를 서비스 언어로 풀어내는 방향입니다.</span>
+            </div>
+            <div class="timeline-item">
+              <strong>다음 성장축</strong>
+              <span>서비스 기획자 역할을 넘어 PM/PO로 확장하며 우선순위 설정, 문제 정의, 실행 정렬, 운영 지표 관리까지 한 흐름으로 리드하는 포지션을 목표로 합니다.</span>
+            </div>
+            <div class="timeline-item">
+              <strong>확장 관심사</strong>
+              <span>데이터 분석 역량과 AI 자동화를 결합해 반복 업무를 줄이고, 나아가 AI 기반 개인 서비스까지 직접 출시할 수 있는 기획자로 성장하는 흐름을 그리고 있습니다.</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="summary-card summary-timeline-card">
+          <div class="tab-header">
+            <h3>최근 경력 연혁</h3>
+            <span>profile</span>
+          </div>
+
+          <div class="career-rail">
+            <section class="career-era" aria-label="2024 career timeline">
+              <div class="career-era-year">2024</div>
+              <div class="career-era-list">
+                <div class="career-entry">
+                  <div class="career-entry-side left">
+                    <strong>정산 구조를 운영 관점에서 다시 설계</strong>
+                    <span>PG 운영과 정산 흐름을 연결해 예외 처리와 정책 기준을 정리하는 역할에 집중했습니다.</span>
+                  </div>
+                  <div class="career-entry-date">2024.06</div>
+                  <div class="career-entry-side right">
+                    <strong>운영 안정화 관점 강화</strong>
+                    <span>실제 운영 이슈를 줄이기 위한 체크포인트와 릴리즈 후 관리 기준을 함께 다듬었습니다.</span>
+                  </div>
+                </div>
+                <div class="career-entry">
+                  <div class="career-entry-side left">
+                    <strong>문제 정의 범위를 서비스 밖 운영까지 확장</strong>
+                    <span>화면과 정책만이 아니라 CS, 정산, 결제 예외까지 포함해 문제를 보는 시야를 넓혔습니다.</span>
+                  </div>
+                  <div class="career-entry-date">2024.10</div>
+                  <div class="career-entry-side right">
+                    <strong>PM/PO 역할로의 다음 축 준비</strong>
+                    <span>기획과 운영을 잇는 실행 리딩 역량을 다음 성장 단계로 삼고 있습니다.</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="career-era" aria-label="2023 career timeline">
+              <div class="career-era-year">2023</div>
+              <div class="career-era-list">
+                <div class="career-entry">
+                  <div class="career-entry-side left">
+                    <strong>네이버페이 API 업그레이드 운영 설계</strong>
+                    <span>문제 정의부터 정책 정합, 화면 기획, QA, 배포 후 운영 정리까지 한 흐름으로 맡았습니다.</span>
+                  </div>
+                  <div class="career-entry-date">2023.11</div>
+                  <div class="career-entry-side right">
+                    <strong>기획 100% · PM 100% 기준의 실행</strong>
+                    <span>문서 분석과 정책 정리, 테스트 시나리오, 운영 가이드 작성까지 직접 연결했습니다.</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="career-era" aria-label="2022 career timeline">
+              <div class="career-era-year">2022</div>
+              <div class="career-era-list">
+                <div class="career-entry">
+                  <div class="career-entry-side left">
+                    <strong>결제 운영 도메인 적응과 기획 기반 확보</strong>
+                    <span>PG 구조와 정산 흐름을 빠르게 익히며 정책 문서와 운영 언어를 서비스 언어로 전환했습니다.</span>
+                  </div>
+                  <div class="career-entry-date">2022.08</div>
+                  <div class="career-entry-side right">
+                    <strong>데이터와 AI 활용 관심 확장</strong>
+                    <span>반복 업무 자동화와 지표 해석을 다음 성장 테마로 잡기 시작한 시점입니다.</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </article>
+
+        <article class="summary-card summary-highlight-card">
+          <div class="tab-header">
+            <h3>기억에 남는 순간</h3>
+            <span>highlights</span>
+          </div>
+
+          <div class="evidence-grid">
+            <div class="evidence-list">
+              <div class="evidence-thumb evidence-note">
+                <span class="chip">Example 01</span>
+                <strong>정산 정책을 화면과 운영 가이드까지 연결한 경험</strong>
+                <p>예외 기준이 복잡한 도메인에서도 문서, 화면, 운영 가이드를 같은 기준으로 맞추며 혼선을 줄인 경험을 대표 사례로 둘 수 있습니다.</p>
+              </div>
+              <span class="evidence-label">PG·정산 도메인의 복잡한 규칙을 서비스 언어로 번역하는 역량 예시</span>
+            </div>
+            <div class="evidence-list">
+              <div class="evidence-thumb evidence-note">
+                <span class="chip">Example 02</span>
+                <strong>데이터로 이탈 구간을 설명하고 우선순위를 잡은 경험</strong>
+                <p>퍼널과 운영 지표를 함께 보며 어디서 사용자가 이탈하는지 설명하고, 어떤 문제부터 풀어야 하는지 팀을 설득하는 사례를 넣을 수 있습니다.</p>
+              </div>
+              <span class="evidence-label">서비스 기획에서 데이터 분석 역량을 강화해 가는 흐름의 예시</span>
+            </div>
+            <div class="evidence-list">
+              <div class="evidence-thumb evidence-note">
+                <span class="chip">Example 03</span>
+                <strong>AI로 반복 정리 업무를 자동화한 경험</strong>
+                <p>반복 보고, 문서 요약, 운영 체크리스트 같은 업무를 AI로 줄여 팀의 시간을 확보하고, 이후 개인 서비스 아이디어로 연결한 경험을 담을 수 있습니다.</p>
+              </div>
+              <span class="evidence-label">업무 자동화와 개인 AI 서비스 출시 관심사를 보여주는 예시</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="principles-grid section">
+        <article class="principle-card">
+          <strong>전략과 운영을 함께 봅니다</strong>
+          <p>기능 기획만이 아니라 실제 운영에서 어떤 기준이 필요한지까지 함께 설계하는 기획을 지향합니다.</p>
+          <span class="metric-chip">policy · ops</span>
+        </article>
+        <article class="principle-card">
+          <strong>데이터로 우선순위를 정합니다</strong>
+          <p>감으로 결정하기보다 사용자 흐름과 지표를 함께 보며 문제를 해석하고, 풀 순서를 정하는 방향을 선호합니다.</p>
+          <span class="metric-chip">data · priority</span>
+        </article>
+        <article class="principle-card">
+          <strong>AI를 실제 실행 도구로 씁니다</strong>
+          <p>AI를 아이디어 수준이 아니라 자동화와 개인 서비스 실험으로 연결해 생산성을 높이는 방향으로 확장하고 있습니다.</p>
+          <span class="metric-chip">ai · automation</span>
+        </article>
+      </div>
+
+      <div class="pill-board">플랫폼 성장과 수익성 강화를 위해 문제 정의, 지표, 정책, 화면, 운영을 한 트랙으로 묶어 실행합니다</div>
+
+      <div class="process-grid section">
+        <article class="process-card">
+          <span class="mini-kicker">01 정의</span>
+          <strong>문제와 맥락을 먼저 맞춥니다</strong>
+          <p>현황과 사용자 흐름, 운영 리스크를 빠르게 정리해 팀이 같은 문제를 보게 만듭니다.</p>
+        </article>
+        <article class="process-card">
+          <span class="mini-kicker">02 정합</span>
+          <strong>정책과 데이터 기준을 세웁니다</strong>
+          <p>문장, 상태값, 예외 처리, 저장 필드를 한 기준표로 맞춰 혼선을 줄입니다.</p>
+        </article>
+        <article class="process-card">
+          <span class="mini-kicker">03 실행</span>
+          <strong>화면과 운영 흐름까지 연결합니다</strong>
+          <p>기획서가 문서에서 끝나지 않도록 와이어, QA, 배포, 운영 안내까지 이어서 설계합니다.</p>
+        </article>
+        <article class="process-card">
+          <span class="mini-kicker">04 검증</span>
+          <strong>결과를 남기고 다음 기준으로 환원합니다</strong>
+          <p>좋아진 지표와 남은 한계를 같이 기록해 다음 프로젝트의 기준으로 재사용합니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="projects-curated">
+      <div class="section-head">
+        <span class="eyebrow">Selected Projects</span>
+        <h2>대표 프로젝트</h2>
+      </div>
+
+      <div class="projects-grid projects-grid-featured">
+        <article class="project-card">
+          <div class="project-cover">
+            <span class="tag-dot" style="background: var(--green);">PG · 정산 · 운영 구조</span>
+            <img src="./Untitled/네이버페이 - 표지.jpg" alt="주문형 네이버페이 API 업그레이드 프로젝트 대표 화면">
+          </div>
+          <div class="project-body">
+            <h3>주문형 네이버페이 API 업그레이드</h3>
+            <p>네이버페이 사용 증가에 맞춰 1.0 한계를 정리하고, 2.1 전환 기준과 운영 구조를 다시 세운 결제 고도화 프로젝트입니다.</p>
+            <ul class="project-stats">
+              <li><strong>기간</strong><span>2022.08 ~ 2023.11</span></li>
+              <li><strong>기여</strong><span>기획 100% · PM 100%</span></li>
+              <li><strong>핵심 키워드</strong><span>정책 수립, API 분석, 관리자 화면, 운영 기준</span></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="project-card placeholder-card">
+          <div class="project-cover project-placeholder">
+            <span class="tag-dot" style="background: var(--blue);">Project 02</span>
+            <div class="placeholder-copy">
+              <strong>Project 02</strong>
+            </div>
+            <div class="placeholder-lines" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>Project 02</h3>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="section legacy-hidden" id="projects">
+      <div class="section-head">
+        <span class="eyebrow">Selected Projects</span>
+        <h2>지금 보여줄 가치가 선명한 프로젝트만 남겼습니다</h2>
+        <p>전체 포트폴리오를 다시 줄이면서, 사용자 성장·교차사용·운영 구조·서비스 이용 증대라는 서로 다른 문제를 대표하는 프로젝트만 남겼습니다.</p>
+      </div>
+
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-cover">
+            <span class="tag-dot" style="background: var(--purple);">서비스 이용자 증가</span>
+            <img src="./JWViv5QXu8qvd8Bz.Group 4.png" alt="상품셀링 TF 리딩 프로젝트 대표 화면">
+          </div>
+          <div class="project-body">
+            <h3>상품셀링 TF 리딩</h3>
+            <p>탐색부터 구매까지 다시 설계해 썸카 주차장 상품 경험을 리드했고, 6개월 운영 기준으로 매출총이익 약 18억 원을 만들었습니다.</p>
+            <ul class="project-stats">
+              <li><strong>기간</strong><span>22.09 ~ 23.02</span></li>
+              <li><strong>기여</strong><span>70%</span></li>
+              <li><strong>핵심 성과</strong><span>매출총이익 18억 원, 클릭 회원 당일 예약전환율 5%p 증가</span></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-cover">
+            <span class="tag-dot" style="background: var(--green);">이용자 풀 증가</span>
+            <img src="./DvHNatoaW4hEExY7.Group 5.png" alt="IMC 캠페인 프로모션과 KTX 부스팅 프로젝트 대표 화면">
+          </div>
+          <div class="project-body">
+            <h3>IMC 캠페인 프로모션 &amp; KTX 부스팅</h3>
+            <p>왕복 회원 확보와 신규 유입 확대를 목표로 프로모션과 A/B 테스트를 묶어 실행해, 2개 이상 왕복 회원 비율을 2.3%p 끌어올렸습니다.</p>
+            <ul class="project-stats">
+              <li><strong>기간</strong><span>23.04 ~ 23.06</span></li>
+              <li><strong>기여</strong><span>80%</span></li>
+              <li><strong>핵심 성과</strong><span>KTX 인입 예약 4배 증가, 1년 이상 미사용 회원 예약전환율 14.23%p 증가</span></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-cover">
+            <span class="tag-dot" style="background: var(--orange);">교차사용 증가</span>
+            <img src="./ixYczUiebTYnvce9.Group 6.png" alt="쏘카 메인 개편 프로젝트 대표 화면">
+          </div>
+          <div class="project-body">
+            <h3>쏘카 메인 개편</h3>
+            <p>신규 서비스의 저조한 유입을 메인 구조 개편으로 풀어, 런칭 7일 만에 인당 교차탐색 개수를 3배로 키우고 숙박 유입도 함께 끌어올렸습니다.</p>
+            <ul class="project-stats">
+              <li><strong>기간</strong><span>23.07 ~ 23.09</span></li>
+              <li><strong>기여</strong><span>80%</span></li>
+              <li><strong>핵심 성과</strong><span>인당 교차탐색 개수 3배 성장, 숙박 유입 증가를 통한 예약전환 지표 상승</span></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-cover">
+            <span class="tag-dot" style="background: var(--red);">활성화 유지 증가</span>
+            <img src="./YgV9Sq9mCsv2pWnu.Group 7.png" alt="쏘카 스테이 관리자 프로젝트 대표 화면">
+          </div>
+          <div class="project-body">
+            <h3>쏘카 스테이 관리자</h3>
+            <p>프로모션 페이지 생성과 관리 프로세스를 손봐 운영 리소스를 줄이면서도 예약전환율을 올릴 수 있는 구조를 만들었습니다.</p>
+            <ul class="project-stats">
+              <li><strong>기간</strong><span>24.06 ~ 진행 중</span></li>
+              <li><strong>기여</strong><span>80%</span></li>
+              <li><strong>핵심 성과</strong><span>예약전환율 300% 증가, 쿠폰 정책·프로모션 생성 리소스 72% 감소 기대</span></li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="naverpay">
+      <div class="feature-shell">
+        <div class="feature-head">
+          <span class="eyebrow">Featured Case</span>
+          <h2>주문형 네이버페이 API 업그레이드</h2>
+          <p>긴 스토리보드를 그대로 옮기지 않고, 배경과 문제, 핵심 개선, 실행과 결과만 남겨 3개의 보드로 다시 압축했습니다.</p>
+        </div>
+
+        <div class="case-stack">
+          <article class="case-board">
+            <div class="phase-nav" aria-hidden="true">
+              <span class="active">why</span>
+              <span>so</span>
+              <span>how</span>
+              <span>output</span>
+            </div>
+
+            <div class="case-title">
+              <span class="section-index">case_01 · overview</span>
+              <h3>수요는 커졌지만 1.0 한계가 분명했던 결제 고도화 프로젝트</h3>
+              <p>네이버페이 사용 증가에 맞춰 메이크샵 1.0의 기능 한계를 정리하고, 2.1 전환 기준과 운영 구조를 다시 세운 프로젝트입니다.</p>
+            </div>
+
+            <div class="case-overview">
+              <div class="stat-grid">
+                <div class="stat-card">
+                  <span class="stat-label">period</span>
+                  <strong>2022.08 ~ 2023.11</strong>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-label">contribution</span>
+                  <strong>기획 100% · PM 100%</strong>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-label">role</span>
+                  <strong>API 분석, 정책 수립, 관리자 화면, QA</strong>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-label">goal</span>
+                  <strong>이탈 방지, 전환 기준 정리, 운영 혼선 축소</strong>
+                </div>
+              </div>
+
+              <div class="media-frame">
+                <img src="./Untitled/네이버페이 - 표지.jpg" alt="네이버페이 API 업그레이드 프로젝트 표지">
+              </div>
+            </div>
+          </article>
+
+          <article class="case-board">
+            <div class="phase-nav" aria-hidden="true">
+              <span>why</span>
+              <span class="active">so</span>
+              <span>how</span>
+              <span>output</span>
+            </div>
+
+            <div class="case-title">
+              <span class="section-index">case_01 · context</span>
+              <h3>실무자가 바로 느끼는 변화 3가지를 먼저 풀었습니다</h3>
+              <p>모든 스펙 차이를 나열하기보다, 자사몰 문의와 운영 이슈를 줄이는 데 직결되는 항목만 앞에 세웠습니다.</p>
+            </div>
+
+            <div class="case-insight">
+              <div class="media-frame">
+                <img src="./Untitled/네이버페이 - asis tobe.jpg" alt="네이버페이 1.0과 2.1의 AS-IS TO-BE 비교">
+              </div>
+
+              <div class="stacked-text">
+                <div class="stack-line">
+                  <strong>배송비</strong>
+                  <span>합산 표기 위주 구조에서 상품·공급사 단위 배송비를 더 분명하게 보여줄 수 있게 바뀌었습니다.</span>
+                </div>
+                <div class="stack-line">
+                  <strong>도서산간</strong>
+                  <span>추가 배송비를 다루기 어려웠던 구조에서 권역·지역 기준 요금을 반영할 수 있게 됐습니다.</span>
+                </div>
+                <div class="stack-line">
+                  <strong>과·면세</strong>
+                  <span>사업자 기준 구분에서 상품 정보 기준으로 바뀌며 실제 상품 단위 처리 정확도가 높아졌습니다.</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="case-board">
+            <div class="phase-nav" aria-hidden="true">
+              <span>why</span>
+              <span>so</span>
+              <span class="active">how</span>
+              <span>output</span>
+            </div>
+
+            <div class="case-title">
+              <span class="section-index">case_01 · execution & result</span>
+              <h3>정책·화면·운영을 한 흐름으로 묶고 전환 속도까지 추적했습니다</h3>
+              <p>문서에서 끝나지 않도록 기준표, 관리자 화면, QA와 운영 가이드를 함께 정리했고, 실제 업그레이드 전환 속도까지 관리했습니다.</p>
+            </div>
+
+            <div class="result-grid">
+              <div class="result-metrics">
+                <div class="result-metric">
+                  <strong>핵심 산출물</strong>
+                  <span>지원 범위와 예외 기준, 관리자 화면, QA 기준을 한 묶음으로 정리해 개발·운영이 같은 기준을 보게 만들었습니다.</span>
+                </div>
+                <div class="result-metric">
+                  <strong>전환 관리</strong>
+                  <span>네이버페이 사용 자사몰 약 2,500개와 업그레이드 요청 수 약 800개를 기준으로 실제 전환 흐름을 추적했습니다.</span>
+                </div>
+                <div class="result-metric">
+                  <strong>회고</strong>
+                  <span>업그레이드는 완료됐지만 실제 전환 속도는 예상보다 느렸습니다. 그래서 성공 결과만이 아니라 현실적인 전환 난이도까지 함께 남겼습니다.</span>
+                </div>
+              </div>
+
+              <div class="split-media">
+                <div class="media-frame">
+                  <img src="./Untitled/네이버페이 - 업무2.jpg" alt="네이버페이 관리자 화면과 전환 프로세스 정리">
+                </div>
+                <div class="media-frame">
+                  <img src="./Untitled/네이버페이 - 결과.jpg" alt="네이버페이 업그레이드 결과와 전환 속도 정리">
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="contact-board">
+        <div class="closing-grid">
+          <div class="contact-copy">
+            <span class="eyebrow">Closing Note</span>
+            <h2>주도적으로 고객과 조직의 <span class="accent">선택을 받는 제품</span>을 만들고 가고 싶습니다</h2>
+            <p>다년간 비즈니스와 고객의 교차점에서 고객 가치부터 비즈니스 임팩트까지 연결했던 경험을 바탕으로, 앞으로도 문제 정의와 실행이 분명한 PM으로 성장하고 싶습니다.</p>
+          </div>
+
+          <div class="contact-side">
+            <dl>
+              <div class="row">
+                <dt>Contact</dt>
+                <dd>서비스 기획자</dd>
+              </div>
+              <div class="row">
+                <dt>Phone</dt>
+                <dd>연락처 입력</dd>
+              </div>
+              <div class="row">
+                <dt>Email</dt>
+                <dd><a class="hidden-link" href="mailto:planner@example.com">planner@example.com</a></dd>
+              </div>
+            </dl>
+
+            <div class="contact-portrait" aria-label="프로필 이미지">
+              <div class="portrait-mark" aria-hidden="true">
+                <strong>PM</strong>
+                <span>folio</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
